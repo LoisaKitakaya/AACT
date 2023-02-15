@@ -7,13 +7,16 @@ load_dotenv()
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
+davinci = "text-davinci-003"
+curie = "text-curie-001"
+
 title = sys.argv[1]
 my_doc = f"{title} \n\n"
 
 prompt = f"In numbered point form generate key points to be addressed in an article with the title '{title}'."
 
 key_points = openai.Completion.create(
-  model="text-davinci-003",
+  model=davinci,
   prompt=prompt,
   temperature=0.7,
   max_tokens=256,
@@ -31,7 +34,7 @@ for point in key_points_list:
     section_prompt = f"In several paragraphs, discuss the following topic '{point}'"
 
     section_paragraph = openai.Completion.create(
-        model="text-davinci-003",
+        model=davinci,
         prompt=section_prompt,
         temperature=0.7,
         max_tokens=256,
