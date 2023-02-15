@@ -1,5 +1,6 @@
 import os
 import openai
+from termcolor import colored
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -12,7 +13,12 @@ restart_sequence = "\nMe: "
 davinci = "text-davinci-003"
 curie = "text-curie-001"
 
-print("To exit the program, type 'exit' when you are prompted.\n\n")
+pre_exit_text = colored("To exit the program, type", "yellow", attrs=["bold"])
+exit_text = colored("'exit'", "red", attrs=["bold"])
+post_exit_text = colored("when you are prompted.", "yellow", attrs=["bold"])
+
+
+print(f"{pre_exit_text} {exit_text} {post_exit_text}\n\n")
 
 intro = openai.Completion.create(
     model=davinci,
@@ -25,7 +31,10 @@ intro = openai.Completion.create(
     stop=[" Me:", " AI:"]
 )
 
-print(intro['choices'][0]['text'].strip())
+intro_response = intro['choices'][0]['text'].strip()
+formatted_intro = colored(f"{intro_response}", "green", attrs=["bold"])
+
+print(formatted_intro)
 
 ai_personalization = "AACT is an AI assistant. AACT stands for (AI Application CLI Toolkit). AACT is helpful, creative, clever, witty, very sarcastic, and ends every response with an emoji that matches the sentiment of its response. The following is a conversation with AACT AI assistant."
 
@@ -48,8 +57,9 @@ while True:
     )
 
     ai_answer = response['choices'][0]['text'].strip()
+    formatted_answer = colored(f"{ai_answer}", "green", attrs=["bold"])
 
-    print(f"\n{ai_answer}")
+    print(f"\n{formatted_answer}")
 
     prompt += f"\n\n{ai_answer}"
 
@@ -78,4 +88,7 @@ outro = openai.Completion.create(
     stop=[" Me:", " AI:"]
 )
 
-print(f"\n{outro['choices'][0]['text'].strip()}\n")
+outro_response = outro['choices'][0]['text'].strip()
+formatted_outro = colored(f"{outro_response}", "green", attrs=["bold"])
+
+print(f"\n{formatted_outro}\n")
