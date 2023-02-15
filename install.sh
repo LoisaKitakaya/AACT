@@ -1,27 +1,28 @@
 #!/bin/bash
 
-sudo rm -r /usr/local/share/AACT
+if [ -d ~/.AACT ]; then
+    rm -rv ~/.AACT;
+fi
 
-sudo mkdir -p /usr/local/share/AACT
-sudo mkdir -p ~/Documents/AACT
+mkdir -pv ~/.AACT
+mkdir -pv ~/Documents/AACT
 
-sudo cp requirementes.txt /usr/local/share/AACT
+cp -rv * ~/.AACT
 
-sudo cp -rv *[^.] /usr/local/share/AACT
+rm ~/.AACT/LICENSE
+rm ~/.AACT/install.sh
+rm ~/.AACT/README.md
 
-sudo cd /usr/local/share/AACT
+cd ~/.AACT
 
-sudo python3 -m venv .venv
-sudo source .venv/bin/activate
-sudo pip install --upgrade pip
-sudo pip install -r -U requirements.txt
+python3 -m venv .venv
+source .venv/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
+
 deactivate
 
-sudo rm requirements.txt
-
 cd -
-
-mkdir -p ~/Documents/AACT
 
 clear
 
