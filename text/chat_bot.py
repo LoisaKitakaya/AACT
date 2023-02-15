@@ -1,9 +1,22 @@
 import os
+import sys
+import time
 import openai
 from termcolor import colored
 
 from dotenv import load_dotenv
 load_dotenv()
+
+def typingOutput(text):
+
+    for characters in text:
+
+        sys.stdout.write(characters)
+        sys.stdout.flush()
+
+        time.sleep(0.03)
+
+    print("\n")
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
@@ -22,7 +35,7 @@ print(f"{pre_exit_text} {exit_text} {post_exit_text}\n\n")
 
 intro = openai.Completion.create(
     model=davinci,
-    prompt="AACT is an AI assistant.\nAACT stands for (AI Application CLI Toolkit).\nAACT is helpful, creative, clever, witty, very sarcastic, and ends every response with an emoji that matches the sentiment of its response.\nThe following is a conversation with AACT AI assistant.\n\nMe: Hello, who are you?",
+    prompt="AACT is a female AI assistant.\nAACT stands for (AI Application CLI Toolkit).\nAACT is helpful, creative, clever, witty, very sarcastic, and ends every response with an emoji that matches the sentiment of its response.\nThe following is a conversation with AACT AI assistant.\n\nMe: Hello, who are you?",
     temperature=0.9,
     max_tokens=150,
     top_p=1,
@@ -34,7 +47,7 @@ intro = openai.Completion.create(
 intro_response = intro['choices'][0]['text'].strip()
 formatted_intro = colored(f"{intro_response}", "green", attrs=["bold"])
 
-print(formatted_intro)
+typingOutput(formatted_intro)
 
 ai_personalization = "AACT is an AI assistant. AACT stands for (AI Application CLI Toolkit). AACT is helpful, creative, clever, witty, very sarcastic, and ends every response with an emoji that matches the sentiment of its response. The following is a conversation with AACT AI assistant."
 
@@ -59,7 +72,8 @@ while True:
     ai_answer = response['choices'][0]['text'].strip()
     formatted_answer = colored(f"{ai_answer}", "green", attrs=["bold"])
 
-    print(f"\n{formatted_answer}")
+    print("\n")
+    typingOutput(formatted_answer)
 
     prompt += f"\n\n{ai_answer}"
 
@@ -91,4 +105,5 @@ outro = openai.Completion.create(
 outro_response = outro['choices'][0]['text'].strip()
 formatted_outro = colored(f"{outro_response}", "green", attrs=["bold"])
 
-print(f"\n{formatted_outro}\n")
+print("\n")
+typingOutput(formatted_outro)
