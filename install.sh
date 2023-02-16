@@ -29,4 +29,37 @@ cd -
 
 clear
 
+echo "Type in which shell you use."
+read -p "[bash | zsh | fish]? " ushell
+
+if [ $ushell == "bash" ]; then
+
+    echo -e "alias 'Cassiopeia'=bash ~/.AACT/text/bot/run.sh" >> ~/.bashrc
+    echo -e "alias 'simple_article'=bash ~/.AACT/text/article/run.sh" >> ~/.bashrc
+    echo -e "alias 'aact --help'=bash ~/.AACT/commands.sh" >> ~/.bashrc
+
+    source ~/.bashrc
+
+elif [ $ushell == "zsh" ]; then
+
+    echo -e "alias 'Cassiopeia'=bash ~/.AACT/text/bot/run.sh" >> ~/.zshrc
+    echo -e "alias 'simple_article'=bash ~/.AACT/text/article/run.sh" >> ~/.zshrc
+    echo -e "alias 'aact --help'=bash ~/.AACT/commands.sh" >> ~/.zshrc
+
+    source ~/.zshrc
+
+elif [ $ushell == "fish" ]; then
+
+    echo -e "alias 'Cassiopeia'=bash ~/.AACT/text/bot/run.sh" >> ~/.fishrc
+    echo -e "alias 'simple_article'=bash ~/.AACT/text/article/run.sh" >> ~/.fishrc
+    echo -e "alias 'aact --help'=bash ~/.AACT/commands.sh" >> ~/.fishrc
+
+    source ~/.fishrc
+
+fi
+
+clear
+
 echo "Installation complete."
+
+echo "\nTo view AACT commands, run the following command:\n'aact --help'"
