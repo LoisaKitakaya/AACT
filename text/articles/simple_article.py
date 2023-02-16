@@ -2,6 +2,8 @@ import os
 import sys
 import openai
 
+os.system('clear')
+
 from dotenv import load_dotenv
 load_dotenv()
 
