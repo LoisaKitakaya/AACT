@@ -4,6 +4,8 @@ import time
 import openai
 from termcolor import colored
 
+os.system('clear')
+
 from dotenv import load_dotenv
 load_dotenv()
 
