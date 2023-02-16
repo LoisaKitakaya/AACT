@@ -1,8 +1,11 @@
 #!/bin/bash
 
 if [ -d ~/.AACT ]; then
+    echo "deleting previous version";
     rm -rv ~/.AACT;
 fi
+
+echo "Installing new version"
 
 mkdir -pv ~/.AACT
 mkdir -pv ~/Documents/AACT
