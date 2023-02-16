@@ -2,6 +2,8 @@
 
 mkdir -p ~/Documents/AACT/articles
 
+clear
+
 read -p "Title for article: " title
 
 source ~/.AACT/.venv/bin/activate
