@@ -2,10 +2,10 @@
 
 if [ -d ~/.AACT ]; then
     echo "deleting previous version";
-    rm -rv ~/.AACT;
+    rm -r ~/.AACT;
 fi
 
-echo "Installing new version"
+echo -e "\nInstalling new version\n"
 
 mkdir -pv ~/.AACT
 mkdir -pv ~/Documents/AACT
@@ -34,32 +34,37 @@ read -p "[bash | zsh | fish]? " ushell
 
 if [ $ushell == "bash" ]; then
 
-    echo -e "alias 'Cassiopeia'=bash ~/.AACT/text/bot/run.sh" >> ~/.bashrc
-    echo -e "alias 'simple_article'=bash ~/.AACT/text/article/run.sh" >> ~/.bashrc
-    echo -e "alias 'aact --help'=bash ~/.AACT/commands.sh" >> ~/.bashrc
+    echo -e "alias Cassiopeia='bash ~/.AACT/text/bot/run.sh'" >> ~/.bashrc
+    echo -e "alias simple_article='bash ~/.AACT/text/article/run.sh'" >> ~/.bashrc
+    echo -e "alias aact_commands='bash ~/.AACT/commands.sh'" >> ~/.bashrc
 
-    source ~/.bashrc
+    clear
+
+    echo "Installation complete."
+    echo -e "\n1. To activate AACT commands, type & run the following command: 'source ~/.bashrc'"
 
 elif [ $ushell == "zsh" ]; then
 
-    echo -e "alias 'Cassiopeia'=bash ~/.AACT/text/bot/run.sh" >> ~/.zshrc
-    echo -e "alias 'simple_article'=bash ~/.AACT/text/article/run.sh" >> ~/.zshrc
-    echo -e "alias 'aact --help'=bash ~/.AACT/commands.sh" >> ~/.zshrc
+    echo -e "alias Cassiopeia='bash ~/.AACT/text/bot/run.sh'" >> ~/.zshrc
+    echo -e "alias simple_article'='bash ~/.AACT/text/article/run.sh'" >> ~/.zshrc
+    echo -e "alias aact_commands='bash ~/.AACT/commands.sh'" >> ~/.zshrc
 
-    source ~/.zshrc
+    clear
+
+    echo "Installation complete."
+    echo -e "\n1. To activate AACT commands, type & run the following command: 'source ~/.zshrc'"
 
 elif [ $ushell == "fish" ]; then
 
-    echo -e "alias 'Cassiopeia'=bash ~/.AACT/text/bot/run.sh" >> ~/.fishrc
-    echo -e "alias 'simple_article'=bash ~/.AACT/text/article/run.sh" >> ~/.fishrc
-    echo -e "alias 'aact --help'=bash ~/.AACT/commands.sh" >> ~/.fishrc
+    echo -e "alias Cassiopeia='bash ~/.AACT/text/bot/run.sh'" >> ~/.fishrc
+    echo -e "alias simple_article='bash ~/.AACT/text/article/run.sh'" >> ~/.fishrc
+    echo -e "alias aact_commands='bash ~/.AACT/commands.sh'" >> ~/.fishrc
 
-    source ~/.fishrc
+    clear
+
+    echo "Installation complete."
+    echo -e "\n1. To activate AACT commands, type & run the following command: 'source ~/.fishrc'"
 
 fi
 
-clear
-
-echo "Installation complete."
-
-echo "\nTo view AACT commands, run the following command:\n'aact --help'"
+echo -e "\n2. To view AACT commands, type & run the following command: 'aact_commands'\n"
