@@ -34,7 +34,7 @@ read -p "[bash | zsh | fish]? " ushell
 
 if [ $ushell == "bash" ]; then
 
-    echo -e "alias cassiopeia='bash ~/.AACT/text/bot/run.sh'" >> ~/.bashrc
+    echo -e "alias andromeda='bash ~/.AACT/text/bot/run.sh'" >> ~/.bashrc
     echo -e "alias article_gen='bash ~/.AACT/text/article/run.sh'" >> ~/.bashrc
     echo -e "alias aact_commands='bash ~/.AACT/commands.sh'" >> ~/.bashrc
 
@@ -45,7 +45,7 @@ if [ $ushell == "bash" ]; then
 
 elif [ $ushell == "zsh" ]; then
 
-    echo -e "alias cassiopeia='bash ~/.AACT/text/bot/run.sh'" >> ~/.zshrc
+    echo -e "alias andromeda='bash ~/.AACT/text/bot/run.sh'" >> ~/.zshrc
     echo -e "alias article_gen='bash ~/.AACT/text/article/run.sh'" >> ~/.zshrc
     echo -e "alias aact_commands='bash ~/.AACT/commands.sh'" >> ~/.zshrc
 
@@ -56,7 +56,7 @@ elif [ $ushell == "zsh" ]; then
 
 elif [ $ushell == "fish" ]; then
 
-    echo -e "alias cassiopeia='bash ~/.AACT/text/bot/run.sh'" >> ~/.fishrc
+    echo -e "alias andromeda='bash ~/.AACT/text/bot/run.sh'" >> ~/.fishrc
     echo -e "alias article_gen='bash ~/.AACT/text/article/run.sh'" >> ~/.fishrc
     echo -e "alias aact_commands='bash ~/.AACT/commands.sh'" >> ~/.fishrc
 
